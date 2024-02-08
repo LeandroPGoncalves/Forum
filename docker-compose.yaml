@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+  forum_node:
+    build:
+      context: ./back-end
+      dockerfile: Dockerfile
+    image: forum_node
+    user: "node"
+    container_name: forum_node
+    networks:
+      - forum_network
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./back-end:/usr/app
+    command: npm start
+  forum_mysql:
+    image: forum_mysql
+    working_dir: /src
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    restart: always
+    container_name: forum_mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/.docker/mysql/data:/var/lib/mysql
+    networks:
+      - forum_network
+
+networks:
+    forum_network:
+        driver: bridge

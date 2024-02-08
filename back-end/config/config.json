@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "password",
+    "database": "forum_development",
+    "host": "forum_mysql",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "password",
+    "database": "forum_test",
+    "host": "forum_mysql",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "password",
+    "database": "forum_production",
+    "host": "forum_mysql",
+    "dialect": "mysql"
+  }
+}
