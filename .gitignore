@@ -3,5 +3,4 @@
 .env.backup
 .env.testing
 /.vscode
-mysql
-
+mysql/mysql.sock
